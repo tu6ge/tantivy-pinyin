@@ -5,11 +5,11 @@ pub fn chinese_stop_words() -> StopWordFilter {
     let contents = include_str!("./stop_data");
     
     #[cfg(target_os = "windows")]
-    const split_str: &str = "\r\n";
+    const SPLIT_STR: &str = "\r\n";
     #[cfg(not(target_os = "windows"))]
-    const split_str: &str = "\n";
+    const SPLIT_STR: &str = "\n";
 
-    let list: Vec<String> = contents.split(split_str).map(|v|v.to_string()).collect();
+    let list: Vec<String> = contents.split(SPLIT_STR).map(|v|v.to_string()).collect();
 
     StopWordFilter::remove(list)
 }
