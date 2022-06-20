@@ -14,7 +14,6 @@ pub fn chinese_stop_words() -> StopWordFilter {
 mod tests {
     use crate::tests::assert_token;
     use crate::stop_words::chinese_stop_words;
-    use crate::{PinyinTokenizer};
     use tantivy::tokenizer::{SimpleTokenizer, TextAnalyzer, Token};
 
     #[test]
