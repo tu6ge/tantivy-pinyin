@@ -27,7 +27,7 @@ jobs:
 
       - name: Test
         run:
-          cargo test
+          cargo test --all-features
 
       - name: Install publish-action
         if: steps.cache-publish-action.outputs.cache-hit != 'true'

@@ -115,6 +115,10 @@ pub fn main() -> tantivy::Result<()> {
 }
 ```
 
+## Features
+
+stop_words 中文停用词
+
 ## Test
 
 ```

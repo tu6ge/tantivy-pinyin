@@ -4,6 +4,9 @@ use tantivy::tokenizer::{ Token, Tokenizer, BoxTokenStream, TokenStream};
 
 use pinyin::ToPinyin;
 
+#[cfg(feature = "stop_words")]
+pub mod stop_words;
+
 #[derive(Clone)]
 pub struct PinyinTokenizer;
 
@@ -15,6 +18,7 @@ pub struct PinyinTokenStream<'a> {
 
 impl Tokenizer for PinyinTokenizer {
     fn token_stream<'a>(&self, text: &'a str) -> BoxTokenStream<'a> {
+
         BoxTokenStream::from(PinyinTokenStream {
             chars: text.chars(),
             offset: 0,
@@ -93,7 +97,7 @@ mod tests{
         tokens
     }
 
-    fn assert_token(token: &Token, position: usize, text: &str, from: usize, to: usize) {
+    pub fn assert_token(token: &Token, position: usize, text: &str, from: usize, to: usize) {
         assert_eq!(
             token.position, position,
             "expected position {} but {:?}",
