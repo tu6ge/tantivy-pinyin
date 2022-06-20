@@ -1,10 +1,11 @@
 [package]
 name = "tantivy-pinyin"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 license = "MIT"
 keywords = ["tantivy", "pinyin"]
 description = "Just like the name, this is a pinyin tokenizer of tantivy."
+repository = "https://github.com/tu6ge/tantivy-pinyin"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
