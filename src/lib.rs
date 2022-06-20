@@ -52,9 +52,7 @@ impl<'a> TokenStream for PinyinTokenStream<'a> {
 #[cfg(test)]
 mod tests{
     use tantivy::tokenizer::{Tokenizer, Token, TokenStream};
-    use crate::PinyinTokenStream;
-
-    use super::PinyinTokenizer;
+    use crate::{PinyinTokenStream, PinyinTokenizer};
 
     #[test]
     fn test_pinyin_tokenizer() {
