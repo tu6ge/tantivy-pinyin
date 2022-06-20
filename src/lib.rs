@@ -51,7 +51,9 @@ impl<'a> TokenStream for PinyinTokenStream<'a> {
 
 #[cfg(test)]
 mod tests{
-    use tantivy::tokenizer::{Tokenizer, Token};
+    use tantivy::tokenizer::{Tokenizer, Token, TokenStream};
+    use crate::PinyinTokenStream;
+
     use super::PinyinTokenizer;
 
     #[test]
@@ -68,6 +70,20 @@ mod tests{
         assert_token(&tokens[5], 5, "", 15, 18);
 
         assert_token(&tokens[6], 6, "bu", 18, 21);
+    }
+
+    #[test]
+    fn test_advance(){
+        let text = "知识";
+        let mut token_stream = PinyinTokenStream {
+            chars: text.chars(),
+            offset: 0,
+            token: Token::default(),
+        };
+
+        assert_eq!(token_stream.advance(), true);
+        assert_eq!(token_stream.advance(), true);
+        assert_eq!(token_stream.advance(), false);
     }
 
     fn token_stream_helper(text: &str) -> Vec<Token> {
