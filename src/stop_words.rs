@@ -20,6 +20,7 @@ mod tests {
     fn test_stop_word() {
         // 使用了简单的英文分词器（使用空格分词）
         let tokens = token_stream_helper("我 的 家里 有 只 猫");
+        println!("tokens list: {:?}", tokens);
         assert_eq!(tokens.len(), 2);
         assert_token(&tokens[0], 2, "家里", 8, 14);
         assert_token(&tokens[1], 5, "猫", 23, 26);
