@@ -1,0 +1,14 @@
+[package]
+name = "tantivy-pinyin"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tantivy = {version = "^0.18"}
+pinyin = "^0.9"
+utf8_slice = "^1"
+
+[dev-dependencies]
+tempfile = "3.3.0"
